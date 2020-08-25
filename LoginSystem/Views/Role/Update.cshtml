@@ -1,0 +1,67 @@
+﻿@model RoleMembers
+
+<h2><i class="fa fa-key"></i> <a asp-controller="Role" asp-action="Index">Roles</a> <i class="fa fa-arrow-right" aria-hidden="true"></i> Edit user permission</h2>
+<div asp-validation-summary="All" class="errormsg"></div>
+
+<div id="container">
+
+    @if ((bool)TempData["IsNotSuperAdmin"])
+    {
+        <p style="margin-bottom: 30px">
+            <em>(<b>Note!</b> Users also having equivalent and/or superior roles as you are disabled for selection.)</em>
+        </p>
+    }
+
+
+    <div id="form2">
+        <form method="post">
+            <input type="hidden" name="roleName" value="@Model.Role.Name" />
+            <input type="hidden" name="roleId" value="@Model.Role.Id" />
+
+            <h3><i class="fa fa-plus-square"></i> Add to @Model.Role.Name</h3>
+            <table style="display: table !important">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <tr><td colspan="2"><i>All users have the @Model.Role.Name role.</i></td></tr>
+                }
+                else
+                {
+                    @foreach (AppUser user in Model.NonMembers)
+                    {
+                        <tr>
+                            <td style="width: 50px">
+                                <input type="checkbox" class="checkmark" name="AddIds" value="@user.Id" asp-disable="@user.Id" />
+                            </td>
+                            <td style="vertical-align: middle">@user.UserName</td>
+                        </tr>
+                    }
+                }
+            </table>
+            <p></p>
+
+            <h3><i class="fa fa-minus-square"></i> Remove from @Model.Role.Name</h3>
+            <table style="display: table !important">
+                @if (Model.Members.Count() == 0)
+                {
+                    <tr><td colspan="2"><i>No users have the @Model.Role.Name role.</i></td></tr>
+                }
+                else
+                {
+                    @foreach (AppUser user in Model.Members)
+                    {
+                        <tr>
+                            <td style="width: 50px">
+                                <input type="checkbox" class="checkmark" name="DeleteIds" value="@user.Id" asp-disable="@user.Id" />
+                            </td>
+                            <td style="vertical-align: middle">@user.UserName</td>
+                        </tr>
+                    }
+                }
+            </table>
+            <button type="submit" class="btn-a">Change permission</button>
+        </form>
+    </div>
+</div>
+<p>
+    <i class="fa fa-arrow-left fa-lg"></i> <a asp-action="Index"><b>Go back</b></a>
+</p>

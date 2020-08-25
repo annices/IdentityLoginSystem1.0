@@ -1,0 +1,33 @@
+﻿@model Login
+
+<h2><i class="fa fa-sign-in"></i> Login</h2>
+<div class="errormsg" asp-validation-summary="All"></div>
+<p class="errormsg">@TempData["error"]</p>
+<p class="successmsg">@TempData["success"]</p>
+
+<div id="container">
+    <div id="form">
+        <form asp-action="Login" method="post">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Email" value="@TempData["email"]" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Password"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Password" />
+
+                    <a asp-controller="Account" asp-action="ResetPasswordURL"><b>Have you forgotten your password?</b></a>
+                </div>
+            </div>
+            <button class="btn-a" type="submit">Login</button>
+        </form>
+    </div>
+</div>

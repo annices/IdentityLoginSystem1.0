@@ -1,0 +1,43 @@
+﻿@model User
+
+<h2><i class="fa fa-user"></i> Create a super admin</h2>
+
+<fieldset>
+    <legend><em>NOTE!</em></legend>
+    <em>For security reasons, this file will be deleted after you have created the first super admin. However, you will be able to edit the user details once you have logged in with your created user credentials.</em>
+</fieldset>
+
+<div asp-validation-summary="All" class="errormsg">@ViewBag.Error</div>
+
+<div id="container">
+    <div id="form">
+        <form method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Username">Username</label> <span class="mandatory">*</span>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Username" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Email">Email</label><span class="mandatory">*</span>
+                </div>
+                <div class="col-75">
+                    <input type="email" asp-for="Email" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Password">Password</label><span class="mandatory">*</span>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Password" required />
+                </div>
+            </div>
+            <button type="submit" class="btn-a">Create</button>
+        </form>
+    </div>
+</div>
+

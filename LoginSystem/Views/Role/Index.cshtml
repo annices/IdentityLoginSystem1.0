@@ -1,0 +1,17 @@
+﻿@model IEnumerable<IdentityRole>
+
+<h2><i class="fa fa-key"></i> Roles</h2>
+
+<div id="container">
+    <table>
+        <tr><th>Role name</th><th>Member(s)</th><th></th></tr>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Name</td>
+                <td asp-users-in-role="@role.Id"></td>
+                <td style="float: right"><a class="btn btn-sm btn-primary" style="color: #000000" title="Edit user permission." asp-action="Update" asp-route-id="@role.Id" asp-editable-for="@role.Name"><i class="fa fa-edit fa-lg"></i></a></td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,29 @@
+﻿<div id="container">
+
+    <h2>Welcome</h2>
+    You are now on the public start page of this application. You can now also login as a SuperAdmin with your created user email and password
+    to start editing and creating user accounts. When you create a new user account, it has by default no roles assigned to it.
+    However, a user account can be assigned to one or many of the following permission roles:
+    <ul>
+        <li>LimitedAdmin</li>
+        <li>Admin</li>
+        <li>SuperAdmin</li>
+    </ul><p />
+
+    <b>No roles (default):</b><br />
+    A user with no roles yet assigned to the account will only have read permissions of other users. However,
+    a registered user will always be able to update the own user details.<p />
+
+    <b>LimitedAdmin:</b><br />
+    LimitedAdmin users will have read permissions for all users and roles, but no edit permissions.<p />
+
+    <b>Admin:</b><br />
+    Admins will have read permissions for all users and roles. Also, the Admin users can edit LimitedAdmins,
+    and users with no roles. However, Admins can only edit LimitedAdmins as long as they donnot also have
+    equivalent or superior roles assigned to them as the Admins.<p />
+
+    <b>SuperAdmin:</b><br />
+    SuperAdmins have at all times full permissions and access throughout the entire application.
+    One SuperAdmin can also edit another SuperAdmin.
+
+</div>

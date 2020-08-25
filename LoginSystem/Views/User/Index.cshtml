@@ -1,0 +1,82 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<AppUser>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+
+<h2><i class="fa fa-users"></i> All users</h2>
+
+<div id="container">
+    <p asp-is-user="@User.Identity.Name">
+        <i class="fa fa-plus-square fa-lg"></i> <a asp-action="Create"><b>Create a user</b></a>
+    </p>
+
+    <form asp-action="Index" method="get">
+        <div class="row">
+            <div class="col-searchfield">
+                <input type="text" name="searchString" size="50" value="@TempData["SearchWord"]"/>
+
+                @if (ViewBag.AllRoles != null)
+                {
+                    @foreach (var item in ViewBag.AllRoles)
+                    {
+                        if (ViewBag.SelectedRoles != null)
+                        {
+                            var selectedRoles = (IList<string>)ViewBag.SelectedRoles;
+                            TempData["selectedRole"] = selectedRoles.Contains(item.Name);
+                        }
+                        TempData["RoleName"] = item.Name;
+
+                        <input type="checkbox" class="checkmark" name="filterByRoles" value="@TempData["RoleName"]" onchange="this.form.submit()"
+                               @(TempData["selectedRole"] != null && (bool)TempData["selectedRole"] ? "checked = 'checked'" : "") />
+
+                        @item.Name
+                    }
+                }
+                <span style="white-space: nowrap">&nbsp;|&nbsp; <a asp-controller="User" asp-action="Index">Clear filter</a></span>
+                <p style="margin-bottom: 10px" />
+            </div>
+            <div class="col-filter-btn">
+                <input type="submit" value="Search" class="btn-a" />
+            </div>
+
+        </div>
+    </form>
+
+    <table>
+        <tr>
+            <th>Username <a asp-controller="User" asp-action="Index" asp-route-sortOrder="@TempData["UserNameSort"]"><img src="~/imgs/up-and-down-arrows.png" class="img-up-down-arrow" /></a></th>
+            <th>Name <a asp-controller="User" asp-action="Index" asp-route-sortOrder="@TempData["NameSort"]"><img src="~/imgs/up-and-down-arrows.png" class="img-up-down-arrow" /></a></th>
+            <th>Email <a asp-controller="User" asp-action="Index" asp-route-sortOrder="@TempData["EmailSort"]"><img src="~/imgs/up-and-down-arrows.png" class="img-up-down-arrow" /></a></th>
+            <th>Created <a asp-controller="User" asp-action="Index" asp-route-sortOrder="@TempData["CreatedSort"]"><img src="~/imgs/up-and-down-arrows.png" class="img-up-down-arrow" /></a></th>
+            <th>Role(s)</th>
+            <th></th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td><a asp-action="Details" asp-controller="User" asp-route-id="@user.Id" title="See user profile.">@user.UserName</a></td>
+                <td>@user.FirstName @user.LastName</td>
+                <td><a href="mailto:@user.Email">@user.Email</a></td>
+                <td>@user.Created</td>
+                <td asp-user-roles="@user.Id">
+                </td>
+                <td style="width: 80px; float: right">
+                    <div asp-visible-for="@user.Id" style="display: inline-block">
+                        <a asp-action="Update" asp-controller="User" asp-route-id="@user.Id" title="Edit user." class="btn btn-sm btn-primary" style="color: #000000">
+                            <i class="fa fa-edit fa-lg"></i>
+                        </a>
+                    </div>
+                    <div asp-visible-for="@user.Id" style="display: inline-block">
+                        <form method="post" asp-action="Delete" asp-controller="User" asp-route-id="@user.Id">
+                            <button type="submit" title="Delete user." class="btn-as-link" onclick="return confirm('Are your sure you want to delete this user?')">
+                                <i class="fa fa-trash fa-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+    <nav aria-label="User paging" class="pagination" style="text-align: center">
+        <vc:pager paging-list="@Model" />
+    </nav>
+</div>

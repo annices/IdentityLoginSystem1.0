@@ -1,0 +1,7 @@
+﻿@using LoginSystem
+@using LoginSystem.Models
+@* Include the below to be able to refer to Identity namespace without using a namespace,
+    and to be able to use the customized tag helper in views.*@
+@using Microsoft.AspNetCore.Identity
+@addTagHelper LoginSystem.TagHelpers.*, LoginSystem
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

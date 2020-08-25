@@ -1,0 +1,529 @@
+﻿/* 
+    Created: 2020
+    Author: Annice Strömberg
+*/
+
+/* General page styling. */
+body {
+    font: 14px "Verdana", Helvetica, Sans-serif;
+    width: 75%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin: auto;
+}
+
+hr {
+    border: 0px;
+    height: 1px;
+    background: #c2c2c2;
+    margin-bottom: 30px;
+}
+
+/* Style link appearance. */
+a,
+a:link,
+a:visited {
+    color: #1b6f90;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #1b6f90;
+        text-decoration: underline;
+    }
+
+/* Style submit buttons to look like text links. */
+.submit {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    /* Optional: */
+    font: 14px "Verdana", Helvetica, Sans-serif; /* Input has OS specific font-family. */
+    color: #1b6f90 !important;
+    cursor: pointer;
+}
+
+    .submit:hover {
+        text-decoration: underline;
+    }
+
+.floatright {
+    float: left;
+    width: 75%;
+    margin-top: 10px;
+}
+
+.menuoptions {
+    float: right;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Style some font colors. */
+.errormsg {
+    color: #cb3b3c;
+    font-weight: bold;
+}
+
+.successmsg {
+    color: #11a162;
+    font-weight: bold;
+}
+
+.mandatory {
+    color: #cb3b3c;
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Style input fields. */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+select,
+textarea {
+    font: 14px "Verdana", Helvetica, Sans-serif;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+button[type="submit"],
+input[type="submit"] {
+    background-color: #1b6f90;
+    color: white;
+    padding: 12px 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+.btn-a:hover {
+    background-color: #144c63;
+}
+
+.btn-as-link {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    vertical-align: top;
+    /*optional*/
+    color: #000000 !important;
+    text-decoration: none;
+}
+
+.btn-as-link:hover {
+    text-decoration: underline;
+}
+
+.img-up-down-arrow {
+    width: 15px;
+    height: 15px;
+    border: 0;
+    vertical-align: bottom;
+}
+
+/* Style filter buttons for non-responsive view. */
+.col-filter-btn {
+    float: left;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    vertical-align: top;
+}
+
+.col-searchfield {
+    float: left;
+    width: 40%;
+    margin-top: 18px;
+}
+
+/* Create a custom checkbox. */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+/* On mouse-over, add a grey background color. */
+.checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background. */
+.checkbox input:checked ~ .checkmark {
+    background-color: #1b6f90;
+}
+
+/* Create the checkmark/indicator (hidden when not checked). */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked. */
+.checkbox input:checked ~ .checkmark:after {
+    display: inline-block;
+}
+
+/* Style the checkmark/indicator. */
+.checkbox .checkmark:after {
+    left: 6px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#form {
+    width: 60% !important;
+    padding-bottom: 40px;
+    margin-left: 10px;
+}
+
+#form2 {
+    width: 100% !important;
+    padding-bottom: 40px;
+    margin-left: 10px;
+}
+
+#login {
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#container {
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    padding: 20px;
+    padding-bottom: 40px !important;
+    clear: both;
+}
+
+#footer {
+    margin-top: 50px;
+    padding-top: 10px;
+    border-top: 1px dotted #545454;
+    font-size: 12px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    vertical-align: middle;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 10px;
+}
+
+/* Style filter buttons for non-responsive view. */
+.col-filter-btn {
+    float: left;
+    width: auto;
+    height: 
+    margin-top: 10px;
+    vertical-align: top;
+}
+
+.col-searchfield {
+    float: left;
+    width: 37%;
+    margin-top: 18px;
+}
+
+/* Clear floats after the columns. */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.btn-a {
+    background-color: #1b6f90;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 10px !important;
+    padding: 8px 15px;
+    border: none;
+    border-left: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+a.btn-a {
+    color: #ffffff;
+    text-decoration: none
+}
+
+    a.btn-a:active {
+        color: #ffffff;
+        text-decoration: none
+    }
+
+    a.btn-a:link {
+        color: #ffffff;
+        text-decoration: none
+    }
+
+    a.btn-a:visited {
+        color: #ffffff;
+        text-decoration: none
+    }
+
+/* Generic table styling for desktops/laptops. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Zebra striping of table rows: */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #aaa;
+    color: white;
+    font-weight: bold;
+}
+
+td,
+th {
+    vertical-align: top;
+    padding: 15px;
+    text-align: left;
+}
+
+.td_bg_light {
+    background: #eee !important;
+}
+.td_bg_dark {
+    background: #e6e6e6 !important;
+}
+
+/* Style site menu. */
+.topnav {
+    background-color: #404040;
+    overflow: hidden;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+a.nav {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: #404040;
+}
+
+    a.nav:hover {
+        background-color: #1b6f90;
+        color: #ffffff;
+    }
+/* Hide the link that should open and close the topnav on small screens. */
+.topnav .icon {
+    display: none;
+}
+
+a.active {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: #1b6f90;
+}
+
+.filter-box {
+    margin-top: 10px;
+    margin-left: 20px;
+    float: right;
+}
+
+.btn button {
+    background-color: #1b6f90;
+    color: white;
+    padding: 12px 30px;
+    margin-top: 18px;
+    border: none;
+    border-left: 1px solid #ffffff;
+    float: right;
+    cursor: pointer; /* Pointer/hand icon */
+}
+
+    .btn button:not(:last-child) {
+        border-right: none; /* Prevent double borders. */
+    }
+
+/* Clear floats (clearfix hack). */
+.btn:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover. */
+.btn button:hover {
+    background-color: #144c63;
+}
+
+/* Start styling paging links. */
+.pagination ul {
+    display: inline-block;
+    padding: 0px;
+    margin: 8px 0;
+    margin-top: 20px;
+}
+.pagination li {
+    display: inline;
+}
+.pagination li a {
+    color: #000000;
+    float: left;
+    text-decoration: none;
+    border: 1px solid #c2c2c2;
+    padding: 8px;
+}
+.pagination li a:hover {
+    background-color: #ffffff;
+}
+/* End paging styling. */
+
+/* Max page width before responsive table is triggered. */
+@media screen and (max-width: 1024px), (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        font: 14px "Verdana", Helvetica, Sans-serif;
+        width: 90%;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        margin: auto;
+    }
+
+    .filter-box {
+        float: left;
+        margin-left: 0px;
+    }
+
+    /* Customize the label (the container). */
+    .checkbox {
+        display: block;
+    }
+
+    #form {
+        width: 100% !important;
+        margin: auto;
+    }
+
+    #container {
+        border-radius: 5px;
+        background-color: #e6e6e6;
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+        clear: both;
+    }
+
+    .col-25,
+    .col-75,
+    button[type="submit"],
+    input[type="submit"],
+    input[type="number"],
+    input[type="password"],
+    input[type="text"] {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .col-filter-btn,
+    .col-searchfield,
+    button[type="submit"],
+    input[type="submit"],
+    input[type="number"],
+    input[type="password"],
+    input[type="text"] {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    /* Add horizontal scrollbar to table on responsive view. */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Responsive menu styling. */
+@media screen and (max-width: 600px) {
+
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+        padding: 14px 16px;
+        color: #ffffff;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
+        .topnav.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+}

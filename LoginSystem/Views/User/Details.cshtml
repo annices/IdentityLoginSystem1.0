@@ -1,0 +1,50 @@
+﻿@model AppUser
+
+<h2><i class="fa fa-user"></i> <a asp-controller="User" asp-action="Index">Users</a> <i class="fa fa-arrow-right" aria-hidden="true"></i> Details for "@Model.UserName"</h2>
+
+<div id="container">
+    <table>
+        <tr>
+            <td style="width: 160px" class="td_bg_light"><b>User ID:</b></td>
+            <td class="td_bg_dark">@Model.Id</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Created:</b></td>
+            <td class="td_bg_dark">@Model.Created</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Updated:</b></td>
+            <td class="td_bg_dark">@Model.Updated</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Role(s):</b></td>
+            <td class="td_bg_dark" asp-user-roles="@Model.Id"></td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Username:</b></td>
+            <td class="td_bg_dark">@Model.UserName</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>First name:</b></td>
+            <td class="td_bg_dark">@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Last name:</b></td>
+            <td class="td_bg_dark">@Model.LastName</td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Email:</b></td>
+            <td class="td_bg_dark"><a href="mailto:@Model.Email">@Model.Email</a></td>
+        </tr>
+        <tr>
+            <td class="td_bg_light"><b>Phone number:</b></td>
+            <td class="td_bg_dark">@Model.PhoneNumber</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    <i class="fa fa-arrow-left fa-lg"></i> <a asp-action="Index"><b>Go back</b></a>
+</p>
+
+

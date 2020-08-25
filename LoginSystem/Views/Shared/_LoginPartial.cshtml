@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <text>Logged in as</text>
+    <a asp-area="LoginSystem" asp-controller="User" asp-action="Manage" title="Edit personal details."> @User.Identity.Name</a>
+    <text>&middot;</text>
+    <a asp-area="LoginSystem" asp-controller="Account" asp-action="Logout"><b>Logout</b></a> <i class="fa fa-sign-out fa-lg"></i>
+
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login"><b>Login</b></a> <i class="fa fa-sign-in fa-lg"></i>
+}
+

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<!--
+This login script was fetched from https://annice.se and was created by Annice Strömberg, 2020.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Identity Login System 1.0</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+</head>
+<body>
+    <header>
+        <div id="login">
+            <partial name="~/Views/Shared/_LoginPartial.cshtml" />
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a class='@if (Context.Request.Path == "/")
+            {<text>active</text>}
+            else
+            {<text>nav</text>}' asp-area="LoginSystem" asp-controller="Home" asp-action="Index">Identity Login System 1.0</a>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (TempData["hasRoles"] != null && (bool)TempData["hasRoles"])
+                {
+                    <a class='@if (Context.Request.Path == "/Role" || Convert.ToString(Context.Request.Path).Contains("/Role/Update"))
+                {<text>active</text>}
+                else
+                {<text>nav</text>}' asp-area="LoginSystem" asp-controller="Role" asp-action="Index">Roles</a>
+                }
+
+                <a class='@if (Context.Request.Path == "/User" || Convert.ToString(Context.Request.Path).Contains("/User/Details")
+                || Convert.ToString(Context.Request.Path).Contains("/User/Create") || Convert.ToString(Context.Request.Path).Contains("/User/Update"))
+            {<text>active</text>}
+            else
+            {<text>nav</text>}' asp-area="LoginSystem" asp-controller="User" asp-action="Index">Users</a>
+
+                <a href="javascript:void(0);" class="icon" onclick="dropDown()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            }
+
+            @{ TempData.Keep("hasRoles"); }
+        </div>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            Identity Login System 1.0 - An ASP.NET Core Identity application from <a href="https://annice.se" target="_blank">Annice.se</a>.
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

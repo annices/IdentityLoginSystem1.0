@@ -1,0 +1,129 @@
+﻿@model AppUser
+
+<h2>
+    <i class="fa fa-user"></i>
+    <a asp-controller="User" asp-action="Index">Users</a> <i class="fa fa-arrow-right" aria-hidden="true"></i> <text>Edit user "</text>@TempData["UserName"]<text>"</text>
+</h2>
+<div asp-validation-summary="All" class="errormsg"></div>
+<p>@TempData["error"]</p>
+
+<div id="container">
+    <div id="form">
+        <form asp-action="Update" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Id"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Id" disabled />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Created"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Created" disabled />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Updated"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Updated" disabled />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="UserName">Username</label><span class="mandatory">*</span>
+                </div>
+                <div class="col-75">
+                    <input asp-for="UserName" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    Current role(s)
+                </div>
+                <div class="col-75">
+                    @if (ViewBag.AllRoles != null)
+                    {
+                        @foreach (var item in ViewBag.AllRoles)
+                        {
+                            var currentRoles = (IList<string>)TempData["CurrentUserRoles"];
+                            bool userRoles = currentRoles.Contains(item.Name);
+
+                            @if (ViewBag.SA_Editable)
+                            {
+                                <input type="checkbox" class="checkmark" name="selectedRoles" value="@item.Name" @(userRoles ? "checked = 'checked'" : "") />
+                                @item.Name<br />
+                            }
+                            else if (ViewBag.A_Editable && (TempData["OwnEditPage"] == null || !Model.Id.Equals(TempData["OwnEditPage"].ToString())))
+                            {
+                                <input type="checkbox" class="checkmark" name="selectedRoles" value="@ViewBag.LA" @(userRoles ? "checked = 'checked'" : "") />
+                                @ViewBag.LA<br />
+                                break;
+                            }
+                            else if (userRoles)
+                            {
+                                foreach (var obj in (IList<string>)TempData["CurrentUserRoles"])
+                                {
+                                    <input type="hidden" name="selectedRoles" value="@obj" />
+                                }
+                                var roleName = string.Join(", ", (IList<string>)TempData["CurrentUserRoles"]);
+                                @roleName
+                                break;
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="FirstName">First name</label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="FirstName" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="LastName">Last name</label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="LastName" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Email"></label><span class="mandatory">*</span>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Email" type="email" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="PhoneNumber">Phone number</label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="PhoneNumber" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="password" />
+                    <i>(If you leave the password field empty, you will keep the current password.)</i>
+                </div>
+            </div>
+            <button type="submit" class="btn-a">Save</button>
+        </form>
+    </div>
+</div>
+<p>
+    <i class="fa fa-arrow-left fa-lg"></i> <a asp-action="Index"><b>Go back</b></a>
+</p>
