@@ -170,7 +170,7 @@ As this script was created in Visual Studio Community with SQL Server, I will go
 
 6. In the PMC, check that you are in the same folder as your “Startup.cs” file by typing the “dir” command followed by enter. If the startup file is listed, you can create a new database migration by typing the following command and then press enter: add-migration *<a migration name>*
 
-<p align="center>
+<p align="center">
    <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-add-migration.png" alt="" width="400">
 </p>
 
@@ -178,7 +178,7 @@ After you have executed the above command, you will notice that a new migration 
 
 7. After you have added the migration, create the database and its tables by typing the following command in PMC followed by enter: *update-database*
 
-<p align="center>
+<p align="center">
    <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-update-database.png" alt="" width="400">
 </p>
 
