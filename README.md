@@ -94,7 +94,7 @@ This section illustrates the relational database and all its tables supported by
 # 8 User interface
 Screenshot of the user list page in desktop vs. responsive view for a SuperAdmin user:
 
-<img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/gui-user-list-desk.png" alt="" width="600"> <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/gui-user-list-resp.png" alt="" width="240">
+<img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/gui-user-list-desk.png" alt="" width="500"> <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/gui-user-list-resp.png" alt="" width="200">
 
 Screenshot of a user edit page in desktop vs. responsive view for a SuperAdmin user:
 
