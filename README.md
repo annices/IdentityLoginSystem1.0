@@ -169,12 +169,18 @@ As this script was created in Visual Studio Community with SQL Server, I will go
 5. In Visual Studio, open the package manager console (PMC) via menu option: *Tools > NuGet Package Manager > Package Manager Console*
 
 6. In the PMC, check that you are in the same folder as your “Startup.cs” file by typing the “dir” command followed by enter. If the startup file is listed, you can create a new database migration by typing the following command and then press enter: add-migration *<a migration name>*
-<img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-add-migration.png" alt="" width="400">
+
+<p align="center>
+   <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-add-migration.png" alt="" width="400">
+</p>
 
 After you have executed the above command, you will notice that a new migration folder named “Migrations” has been added in the “Solution Explorer” window.
 
 7. After you have added the migration, create the database and its tables by typing the following command in PMC followed by enter: *update-database*
-<img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-update-database.png" alt="" width="400">
+
+<p align="center>
+   <img src="https://diagrams.annice.se/c-sharp-identity-login-system-1.0/pmc-update-database.png" alt="" width="400">
+</p>
 
 8. Once you see the feedback message “Done” in the PMC, the database has been created based on your connection string in “appsettings.json” along with the default database tables supported by the ASP.NET Identity framework. (You can also control this by connecting to your SQLEXPRESS instance via SSMS and check for the database tables there.)
 
